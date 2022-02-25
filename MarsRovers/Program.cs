@@ -13,7 +13,7 @@ namespace MarsRovers
         public static string RoverD { get; set; }
         public static string RoverCommands { get; set; }
 
-        private static readonly string[] Directions = { "N", "W", "S", "E" };
+        private static readonly string[] Directions = { "N", "E", "S", "W" };
         private static readonly string[] Commands = { "L", "R", "M" };
 
 
@@ -45,10 +45,55 @@ namespace MarsRovers
 
                 } while (!GetRoverCommands());
 
+                MoveRoverWithCommands();
+
+                if (RoverX <= PlateauX && RoverY <= PlateauY)
+                {
+                    Console.WriteLine("Rover's position after commands: ");
+                    Console.WriteLine("{0} {1} {2}", RoverX, RoverY, RoverD);
+                }
+                else
+                {
+                    Console.WriteLine("Rover is outside of the plateau!");
+                }
+
                 Console.WriteLine("Do you want to add a new rover or cancel Y/N (Y: Add New, N: Cancel)");
                 continueKey = Console.ReadKey();
+                if(continueKey.Key != ConsoleKey.N)
+                {
+                    RoverD = string.Empty;
+                    RoverX = 0;
+                    RoverY = 0;
+                    RoverCommands = string.Empty;
+                }
 
             } while (continueKey.Key != ConsoleKey.N);
+        }
+
+        private static void MoveRoverWithCommands()
+        {
+            foreach (var command in RoverCommands.ToArray())
+            {
+                switch (command)
+                {
+                    case 'L':
+                        RoverD = RoverD == "N" ? "W" : (RoverD == "W" ? "S" : (RoverD == "S" ? "E" : "N"));
+                        break;
+                    case 'R':
+                        RoverD = RoverD == "N" ? "E" : (RoverD == "E" ? "S" : (RoverD == "S" ? "W" : "N"));
+                        break;
+                    case 'M':
+                        if (RoverD == "N")
+                            RoverY++;
+                        if (RoverD == "E")
+                            RoverX++;
+                        if (RoverD == "S")
+                            RoverY--;
+                        if (RoverD == "W")
+                            RoverX--;
+                        break;
+                }
+            }
         }
 
         private static bool GetRoverCommands()
@@ -73,11 +118,14 @@ namespace MarsRovers
                 }
             }
 
-            if(!_roverD)
+            if (!_roverD)
             {
                 Console.WriteLine("Given Parameters is wrong insert rover rommands with only using \"L R M\" without space!");
             }
-
+            else
+            {
+                RoverCommands = roverCommands;
+            }
             return _roverD;
         }
 
@@ -104,7 +152,7 @@ namespace MarsRovers
                     _ = int.TryParse(splitAndConvert[0], out int xInt);
                     if (xInt > 0 && xInt <= PlateauX)
                         RoverX = xInt;
-                    else if(xInt > PlateauX)
+                    else if (xInt > PlateauX)
                     {
                         Console.WriteLine("X coordinate should not be bigger than plateau. Max plateau X is {0}!", PlateauX);
                         return false;
@@ -131,7 +179,7 @@ namespace MarsRovers
 
                     if (Directions.Contains(splitAndConvert[2].ToUpper()))
                     {
-                        RoverD = splitAndConvert[1];
+                        RoverD = splitAndConvert[2];
                         _roverD = true;
                     }
                     else
