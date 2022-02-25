@@ -14,6 +14,8 @@ namespace MarsRovers
         public static string RoverCommands { get; set; }
 
         private static readonly string[] Directions = { "N", "W", "S", "E" };
+        private static readonly string[] Commands = { "L", "R", "M" };
+
 
         static void Main(string[] args)
         {
@@ -35,13 +37,48 @@ namespace MarsRovers
                     Console.WriteLine("Please input rover position with space \"X Y D\" (X and Y is coordinates and D is direction - N W S E): ");
 
                 } while (!GetRoverPosition());
-                
-                // Add Rover Commands
+
+                // Get Rover Commands
+                do
+                {
+                    Console.WriteLine("Please input rover commands without space (L is turns rover to 90 degrees left and R turns rover to 90 degrees right, M is for move forward without changeing direction): ");
+
+                } while (!GetRoverCommands());
 
                 Console.WriteLine("Do you want to add a new rover or cancel Y/N (Y: Add New, N: Cancel)");
                 continueKey = Console.ReadKey();
 
             } while (continueKey.Key != ConsoleKey.N);
+        }
+
+        private static bool GetRoverCommands()
+        {
+            var roverCommands = Console.ReadLine();
+            bool _roverD = true;
+
+            if (string.IsNullOrEmpty(roverCommands))
+            {
+                Console.WriteLine(ErrorMessages.EmptyData);
+                return false;
+            }
+            else
+            {
+                var splitAndConvert = roverCommands.ToArray();
+                foreach (var charComm in splitAndConvert)
+                {
+                    if (!Commands.Contains(charComm.ToString().ToUpper()))
+                    {
+                        _roverD = false;
+                    }
+                }
+            }
+
+            if(!_roverD)
+            {
+                Console.WriteLine("Given Parameters is wrong insert rover rommands with only using \"L R M\" without space!");
+            }
+
+            return _roverD;
         }
 
         private static bool GetRoverPosition()
@@ -92,7 +129,7 @@ namespace MarsRovers
                         return false;
                     }
 
-                    if (Directions.Contains(splitAndConvert[2]))
+                    if (Directions.Contains(splitAndConvert[2].ToUpper()))
                     {
                         RoverD = splitAndConvert[1];
                         _roverD = true;
