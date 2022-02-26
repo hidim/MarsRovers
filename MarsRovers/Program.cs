@@ -77,20 +77,17 @@ namespace MarsRovers
                 switch (command)
                 {
                     case 'L':
-                        RoverD = RoverD == "N" ? "W" : (RoverD == "W" ? "S" : (RoverD == "S" ? "E" : "N"));
-                        break;
+                        RoverD = RoverD == "N" ? "W" : (RoverD == "W" ? "S" : (RoverD == "S" ? "E" : "N")); break;
                     case 'R':
-                        RoverD = RoverD == "N" ? "E" : (RoverD == "E" ? "S" : (RoverD == "S" ? "W" : "N"));
-                        break;
+                        RoverD = RoverD == "N" ? "E" : (RoverD == "E" ? "S" : (RoverD == "S" ? "W" : "N")); break;
                     case 'M':
-                        if (RoverD == "N")
-                            RoverY++;
-                        if (RoverD == "E")
-                            RoverX++;
-                        if (RoverD == "S")
-                            RoverY--;
-                        if (RoverD == "W")
-                            RoverX--;
+                        switch (RoverD)
+                        {
+                            case "N": RoverY++; break;
+                            case "E": RoverX++; break;
+                            case "S": RoverY--; break;
+                            case "W": RoverX--; break;
+                        }
                         break;
                 }
             }
