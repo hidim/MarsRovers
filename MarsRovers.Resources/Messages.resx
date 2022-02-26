@@ -117,40 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="EmptyData" xml:space="preserve">
-    <value>Empty data, please insert an information!</value>
+  <data name="AddNewRoverOrCancelMessage" xml:space="preserve">
+    <value>Do you want to add a new rover or cancel Y/N (Y: Add New, N: Cancel)</value>
   </data>
-  <data name="OutsidePlateau" xml:space="preserve">
-    <value>Rover is outside of the plateau!</value>
+  <data name="CoordinateMessage" xml:space="preserve">
+    <value>Please input limit information with space "X Y":</value>
   </data>
-  <data name="PlateauWrong" xml:space="preserve">
-    <value>Given Parameters is wrong insert limit information with space "X Y"!</value>
+  <data name="ResultMessage" xml:space="preserve">
+    <value>Rover's position after commands:</value>
   </data>
-  <data name="PlateauXWrong" xml:space="preserve">
-    <value>X coordinate should be bigger than 0!</value>
+  <data name="RoverCommandsMessage" xml:space="preserve">
+    <value>Please input rover commands without space (L is turns rover to 90 degrees left and R turns rover to 90 degrees right, M is for move forward without changeing direction):</value>
   </data>
-  <data name="PlateauYWrong" xml:space="preserve">
-    <value>Y coordinate should be bigger than 0!</value>
-  </data>
-  <data name="RoverCommandsWrong" xml:space="preserve">
-    <value>Given Parameters is wrong insert rover rommands with only using "L R M" without space!</value>
-  </data>
-  <data name="RoverDirectionWrong" xml:space="preserve">
-    <value>Direction should be N, S, W, E!</value>
-  </data>
-  <data name="RoverPositionWrong" xml:space="preserve">
-    <value>Given Parameters is wrong insert rover position with space "X Y D"!</value>
-  </data>
-  <data name="RoverPositionXWrong" xml:space="preserve">
-    <value>X coordinate should not be bigger than plateau. Max plateau X is {0}!</value>
-  </data>
-  <data name="RoverPositionXWrong2" xml:space="preserve">
-    <value>X coordinate should be bigger than 0!</value>
-  </data>
-  <data name="RoverPositionYWrong" xml:space="preserve">
-    <value>Y coordinate should not be bigger than plateau. Max plateau Y is {0}!</value>
-  </data>
-  <data name="RoverPositionYWrong2" xml:space="preserve">
-    <value>Y coordinate should be bigger than 0!</value>
+  <data name="RoverMessage" xml:space="preserve">
+    <value>Please input rover position with space "X Y D" (X and Y is coordinates and D is direction - N W S E):</value>
   </data>
 </root>

@@ -68,5 +68,104 @@ namespace MarsRovers.Resources {
                 return ResourceManager.GetString("EmptyData", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rover is outside of the plateau!.
+        /// </summary>
+        public static string OutsidePlateau {
+            get {
+                return ResourceManager.GetString("OutsidePlateau", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Given Parameters is wrong insert limit information with space &quot;X Y&quot;!.
+        /// </summary>
+        public static string PlateauWrong {
+            get {
+                return ResourceManager.GetString("PlateauWrong", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to X coordinate should be bigger than 0!.
+        /// </summary>
+        public static string PlateauXWrong {
+            get {
+                return ResourceManager.GetString("PlateauXWrong", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Y coordinate should be bigger than 0!.
+        /// </summary>
+        public static string PlateauYWrong {
+            get {
+                return ResourceManager.GetString("PlateauYWrong", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Given Parameters is wrong insert rover rommands with only using &quot;L R M&quot; without space!.
+        /// </summary>
+        public static string RoverCommandsWrong {
+            get {
+                return ResourceManager.GetString("RoverCommandsWrong", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Direction should be N, S, W, E!.
+        /// </summary>
+        public static string RoverDirectionWrong {
+            get {
+                return ResourceManager.GetString("RoverDirectionWrong", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Given Parameters is wrong insert rover position with space &quot;X Y D&quot;!.
+        /// </summary>
+        public static string RoverPositionWrong {
+            get {
+                return ResourceManager.GetString("RoverPositionWrong", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to X coordinate should not be bigger than plateau. Max plateau X is {0}!.
+        /// </summary>
+        public static string RoverPositionXWrong {
+            get {
+                return ResourceManager.GetString("RoverPositionXWrong", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to X coordinate should be bigger than 0!.
+        /// </summary>
+        public static string RoverPositionXWrong2 {
+            get {
+                return ResourceManager.GetString("RoverPositionXWrong2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Y coordinate should not be bigger than plateau. Max plateau Y is {0}!.
+        /// </summary>
+        public static string RoverPositionYWrong {
+            get {
+                return ResourceManager.GetString("RoverPositionYWrong", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Y coordinate should be bigger than 0!.
+        /// </summary>
+        public static string RoverPositionYWrong2 {
+            get {
+                return ResourceManager.GetString("RoverPositionYWrong2", resourceCulture);
+            }
+        }
     }
 }

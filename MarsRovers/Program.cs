@@ -24,7 +24,7 @@ namespace MarsRovers
             // Init pleateau with given parameters.
             do
             {
-                Console.WriteLine("Please input limit information with space \"X Y\": ");
+                Console.WriteLine(Resources.Messages.CoordinateMessage);
 
             } while (!GetPlateauCoordinates());
 
@@ -34,14 +34,14 @@ namespace MarsRovers
                 // Get Mars Rover positions
                 do
                 {
-                    Console.WriteLine("Please input rover position with space \"X Y D\" (X and Y is coordinates and D is direction - N W S E): ");
+                    Console.WriteLine(Resources.Messages.RoverMessage);
 
                 } while (!GetRoverPosition());
 
                 // Get Rover Commands
                 do
                 {
-                    Console.WriteLine("Please input rover commands without space (L is turns rover to 90 degrees left and R turns rover to 90 degrees right, M is for move forward without changeing direction): ");
+                    Console.WriteLine(Resources.Messages.RoverCommandsMessage);
 
                 } while (!GetRoverCommands());
 
@@ -49,17 +49,17 @@ namespace MarsRovers
 
                 if (RoverX <= PlateauX && RoverY <= PlateauY)
                 {
-                    Console.WriteLine("Rover's position after commands: ");
+                    Console.WriteLine(Resources.Messages.ResultMessage);
                     Console.WriteLine("{0} {1} {2}", RoverX, RoverY, RoverD);
                 }
                 else
                 {
-                    Console.WriteLine("Rover is outside of the plateau!");
+                    Console.WriteLine(Resources.ErrorMessages.OutsidePlateau);
                 }
 
-                Console.WriteLine("Do you want to add a new rover or cancel Y/N (Y: Add New, N: Cancel)");
+                Console.WriteLine(Resources.Messages.AddNewRoverOrCancelMessage);
                 continueKey = Console.ReadKey();
-                if(continueKey.Key != ConsoleKey.N)
+                if (continueKey.Key != ConsoleKey.N)
                 {
                     RoverD = string.Empty;
                     RoverX = 0;
@@ -120,7 +120,7 @@ namespace MarsRovers
 
             if (!_roverD)
             {
-                Console.WriteLine("Given Parameters is wrong insert rover rommands with only using \"L R M\" without space!");
+                Console.WriteLine(Resources.ErrorMessages.RoverCommandsWrong);
             }
             else
             {
@@ -144,7 +144,7 @@ namespace MarsRovers
                 var splitAndConvert = roverPosition.Split(' ');
                 if (splitAndConvert.Length != 3)
                 {
-                    Console.WriteLine("Given Parameters is wrong insert rover position with space \"X Y D\"!");
+                    Console.WriteLine(Resources.ErrorMessages.RoverPositionWrong);
                     return false;
                 }
                 else
@@ -154,12 +154,12 @@ namespace MarsRovers
                         RoverX = xInt;
                     else if (xInt > PlateauX)
                     {
-                        Console.WriteLine("X coordinate should not be bigger than plateau. Max plateau X is {0}!", PlateauX);
+                        Console.WriteLine(Resources.ErrorMessages.RoverPositionXWrong, PlateauX);
                         return false;
                     }
                     else
                     {
-                        Console.WriteLine("X coordinate should be bigger than 0!");
+                        Console.WriteLine(Resources.ErrorMessages.RoverPositionXWrong2);
                         return false;
                     }
 
@@ -168,12 +168,12 @@ namespace MarsRovers
                         RoverY = yInt;
                     else if (yInt > PlateauY)
                     {
-                        Console.WriteLine("Y coordinate should not be bigger than plateau. Max plateau Y is {0}!", PlateauY);
+                        Console.WriteLine(Resources.ErrorMessages.RoverPositionYWrong, PlateauY);
                         return false;
                     }
                     else
                     {
-                        Console.WriteLine("Y coordinate should be bigger than 0!");
+                        Console.WriteLine(Resources.ErrorMessages.RoverPositionYWrong2);
                         return false;
                     }
 
@@ -184,7 +184,7 @@ namespace MarsRovers
                     }
                     else
                     {
-                        Console.WriteLine("Direction should be N, S, W, E!");
+                        Console.WriteLine(Resources.ErrorMessages.RoverDirectionWrong);
                         return false;
                     }
                 }
@@ -206,7 +206,7 @@ namespace MarsRovers
                 var splitAndConvert = plateauLimits.Split(' ');
                 if (splitAndConvert.Length != 2)
                 {
-                    Console.WriteLine("Given Parameters is wrong insert limit information with space \"X Y\"!");
+                    Console.WriteLine(Resources.ErrorMessages.PlateauWrong);
                     return false;
                 }
                 else
@@ -216,7 +216,7 @@ namespace MarsRovers
                         PlateauX = xInt;
                     else
                     {
-                        Console.WriteLine("X coordinate should be bigger than 0!");
+                        Console.WriteLine(Resources.ErrorMessages.PlateauXWrong);
                         return false;
                     }
 
@@ -225,7 +225,7 @@ namespace MarsRovers
                         PlateauY = yInt;
                     else
                     {
-                        Console.WriteLine("Y coordinate should be bigger than 0!");
+                        Console.WriteLine(Resources.ErrorMessages.PlateauYWrong);
                         return false;
                     }
                 }
